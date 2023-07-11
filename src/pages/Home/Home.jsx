@@ -1,4 +1,4 @@
-import { Button } from 'flowbite-react';
+
 import React from 'react';
 import { useSelector } from 'react-redux';
 import UserTable from './UserTable';
@@ -8,7 +8,10 @@ const Home = () => {
       console.log(users);
       return (
             <div>
-                  <div className="overflow-x-auto">
+                  <div className=' text-center'>
+                        <button className='btn btn-success '>ADD USER</button>
+                  </div>
+                  <div className="overflow-x-auto w-[90%] mx-auto">
                         <table className="table">
                               {/* head */}
                               <thead>
