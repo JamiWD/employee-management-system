@@ -1,25 +1,32 @@
 import React, { useState } from 'react';
-import { addUser } from '../../redux/state/UseReducer';
-import { useDispatch, useSelector } from 'react-redux';
+// import { addUser } from '../../redux/state/UseReducer';
+import { useDispatch} from 'react-redux';
+import { createUser } from '../../redux/state/UseReducer';
 import { useNavigate } from 'react-router-dom';
 
 const CreateUser = () => {
-      const [error, setError] = useState('');
-      const [name, setName]= useState('')
-      const [email, setEmail]= useState('')
-      const [phone, setPhone]= useState('')
+      const [users, setUsers]=useState({});
+
 
       const navigate= useNavigate()
 
-      const users= useSelector((state)=>state.users);
+      // const users= useSelector((state)=>state.users);
 
       const dispatch= useDispatch();
+
+      const getUserData=e=>{
+            setUsers({...users,[e.target.name]:e.target.value});
+            
+      };
+
+
       const handleSubmit=event=>{
             event.preventDefault();
 
-            dispatch(addUser({id: users[users.length-1].id+1, name, email, phone}));
-
+            dispatch(createUser(users))
             navigate('/')
+
+        
       }
       return (
             < form className='w-[80%] md:w-1/2 mx-auto' onSubmit={handleSubmit}>
@@ -35,7 +42,8 @@ const CreateUser = () => {
                                     name="name"
                                     placeholder='Enter Name...'
                                     className="w-full border border-gray-300 rounded-md px-3 py-2"
-                                    onChange={e=>setName(e.target.value)}
+                                    onChange={getUserData}
+                                    required
                                    
                               />
                             
@@ -50,7 +58,8 @@ const CreateUser = () => {
                                     name="email"
                                     placeholder='Enter Email...'
                                     className="w-full border border-gray-300 rounded-md px-3 py-2"
-                                    onChange={e=>setEmail(e.target.value)}
+                                    onChange={getUserData}
+                                    required
                                   
                               />
                         </div>
@@ -63,12 +72,13 @@ const CreateUser = () => {
                                     Phone Number <span className=' text-red-500'>*</span>
                               </label>
                               <input
-                                    type="number"
+                                    type="text"
                                     id="phoneNumber"
                                     name="phoneNumber"
                                     placeholder='Enter phone number...'
                                     className="w-full border border-gray-300 rounded-md px-3 py-2"
-                                    onChange={e=>setPhone(e.target.value)}
+                                    onChange={getUserData}
+                                    required
                               />
                         </div>
 
@@ -76,9 +86,7 @@ const CreateUser = () => {
 
 
                   
-                  {
-                        error && <p className=' text-red-600'>{error}</p>
-                  }
+                  
                   <div className=' text-center'>
                         <button  type="submit" className="btn btn-info bg-blue-500 text-white px-4 py-3 w-full mt-6 hover:bg-sky-950 hover:text-white rounded-md">
                               Create

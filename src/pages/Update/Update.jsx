@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { updateUser } from '../../redux/state/UseReducer';
+// import { updateUser } from '../../redux/state/UseReducer';
 
 const Update = () => {
       const navigate = useNavigate()
@@ -21,12 +21,12 @@ const Update = () => {
       const handleSubmit = event => {
             event.preventDefault()
 
-            dispatch(updateUser({
-                  id: id,
-                  name: uname,
-                  email: uemail,
-                  phone: uphone
-            }))
+            // dispatch(updateUser({
+            //       id: id,
+            //       name: uname,
+            //       email: uemail,
+            //       phone: uphone
+            // }))
 
             navigate('/')
       }
