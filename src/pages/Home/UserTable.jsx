@@ -13,7 +13,7 @@ const UserTable = ({ user }) => {
                   <th>{id}</th>
                   <td>{name}</td>
                   <td className=' flex gap-4'>
-                        <Link className='btn btn-sm btn-secondary'>View</Link>
+                        <Link to={`/view/${id}`} className='btn btn-sm btn-secondary'>View</Link>
                         <Link to={`/update/${id}`} className='btn btn-sm btn-info'>Edit</Link>
                         <button onClick={() => handleDelete(id)} className=' btn btn-sm btn-error'>Delete</button>
                   </td>
