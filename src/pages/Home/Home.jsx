@@ -2,6 +2,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import UserTable from './UserTable';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
       const users = useSelector((state) => state.users);
@@ -9,7 +10,7 @@ const Home = () => {
       return (
             <div>
                   <div className=' text-center'>
-                        <button className='btn btn-success '>ADD USER</button>
+                        <Link to='/create' className='btn btn-success '>ADD USER</Link>
                   </div>
                   <div className="overflow-x-auto w-[90%] mx-auto">
                         <table className="table">

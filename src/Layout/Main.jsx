@@ -12,7 +12,7 @@ const Main = () => {
                         {/* Page content here */}
                         <div className='flex items-center md:block gap-4 bg-white shadow mb-10'>
                             
-                              <label htmlFor="my-drawer-2" className="drawer-button lg:hidden ext-8xl font-extrabold"><CiMenuFries size={50} className=' pl-4' /></label>
+                              <label htmlFor="my-drawer-2" className="drawer-button lg:hidden ext-8xl font-extrabold cursor-pointer"><CiMenuFries size={50} className=' pl-4' /></label>
                               <Header></Header>
                         </div>
 
