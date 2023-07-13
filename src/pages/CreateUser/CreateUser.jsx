@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch} from 'react-redux';
 import { createUser } from '../../redux/state/UseReducer';
 import { useNavigate } from 'react-router-dom';
+import { BsArrowBarRight } from 'react-icons/bs';
 
 const CreateUser = () => {
       const [users, setUsers]=useState({});
@@ -89,7 +90,7 @@ const CreateUser = () => {
                   
                   <div className=' text-center'>
                         <button  type="submit" className="btn btn-info bg-blue-500 text-white px-4 py-3 w-full mt-6 hover:bg-sky-950 hover:text-white rounded-md">
-                              Create
+                              Create <BsArrowBarRight size={30}/>
                         </button>
                   </div>
             </form>

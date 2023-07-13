@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import { updateUser } from '../../redux/state/UseReducer';
+import Swal from 'sweetalert2';
 
 
 const Update = () => {
@@ -9,7 +10,7 @@ const Update = () => {
       const navigate = useNavigate()
       const dispatch = useDispatch();
       const [updateData, setUpdateData] = useState(d);
-   
+
 
 
       const newData = (e) => {
@@ -20,10 +21,34 @@ const Update = () => {
       const handleSubmit = event => {
             event.preventDefault()
             // console.log(updateData);
+            Swal.fire({
+                  title: 'Are you sure?',
+                  text: "You won't be able to revert this!",
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Update!'
+            }).then((result) => {
+                  if (result.isConfirmed) {
+                        dispatch(updateUser(updateData))
+                        Swal.fire({
+                              position: 'top-end',
+                              icon: 'success',
+                              title: 'Your work has been updated',
+                              showConfirmButton: false,
+                              timer: 1500
+                        })
+                        navigate('/')
 
-            dispatch(updateUser(updateData))
 
-            navigate('/')
+
+                  }
+            });
+
+
+
+
       }
       return (
             < form className='w-[80%] md:w-1/2 mx-auto' onSubmit={handleSubmit}>
