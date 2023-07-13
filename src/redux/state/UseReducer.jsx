@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 // import { users } from "../../Data/Data";
 
 export const createUser = createAsyncThunk("createUser", async (data, { rejectWithValue }) => {
-      const res = await fetch("http://localhost:3000/users/", {
+      const res = await fetch("https://user-management-server-flax.vercel.app/users/", {
             method: "POST",
             headers: {
                   "Content-Type": "application/json"
@@ -23,7 +23,7 @@ export const updateUser = createAsyncThunk(
       "updateUser",
       async (data, { rejectWithValue }) => {
 
-            const res = await fetch(`http://localhost:3000/users/${data._id}`, {
+            const res = await fetch(`https://user-management-server-flax.vercel.app/users/${data._id}`, {
                   method: "PATCH",
                   headers: {
                         "Content-Type": "application/json"
@@ -44,7 +44,7 @@ export const updateUser = createAsyncThunk(
 
 //show all user
 export const showUser = createAsyncThunk("showUser", async (args, { rejectWithValue }) => {
-      const res = await fetch('http://localhost:3000/users/');
+      const res = await fetch('https://user-management-server-flax.vercel.app/users/');
 
       try {
             const result = res.json();
@@ -61,7 +61,7 @@ export const showUser = createAsyncThunk("showUser", async (args, { rejectWithVa
 // delete user 
 export const deleteUser = createAsyncThunk("deleteUser",
       async (_id, { rejectWithValue }) => {
-            const res = await fetch(`http://localhost:3000/users/${_id}`, {
+            const res = await fetch(`https://user-management-server-flax.vercel.app/users/${_id}`, {
                   method: "DELETE"
             });
             try {
@@ -81,27 +81,9 @@ export const userSlice = createSlice({
             error: null,
       },
       reducers: {
-            // addUser:(state,action)=>{
-            //       state.push(action.payload);
-            // },
-
-            // updateUser:(state,action)=>{
-            //  const {id, name, email, phone}= action.payload;
-            //  const updatingUser= state.find(user=>user.id == id);
-            //  if(updatingUser){
-            //       updatingUser.name= name,
-            //       updatingUser.email= email,
-            //       updatingUser.phone= phone
-            //  }
-            // },
-
-            // deleteUser:(state,action)=>{
-            //       const {id}= action.payload;
-            //       const uu= state.find(user=>user.id ==id);
-            //       if(uu){
-            //             return state.filter(user=>user.id !== id);
-            //       }
-            // }
+            searchUser: (state, action) => {
+                  state.searchData = action.payload;
+                },
       },
 
       extraReducers: {
@@ -175,3 +157,4 @@ export const userSlice = createSlice({
 // export const {addUser,updateUser,deleteUser}= userSlice.actions;
 
 export default userSlice.reducer;
+export const { searchUser } = userSlice.actions;

@@ -4,7 +4,7 @@ const useUsers=()=>{
 const {data: usersa=[], refetch}= useQuery({
       queryKey:['users'],
       queryFn:async()=>{
-            const res = await fetch(`http://localhost:3000/users/`);
+            const res = await fetch(`https://user-management-server-flax.vercel.app/users/`);
             return res.json();
       }
 })

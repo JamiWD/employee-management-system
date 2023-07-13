@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '../pages/Shared/Header/Header';
-import Footer from '../pages/Shared/Footer/Footer';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { CiMenuFries } from 'react-icons/ci';
 import { FaUser, FaUsers } from 'react-icons/fa';
@@ -30,6 +29,7 @@ const Main = () => {
                               {/* Sidebar content here */}
                               <div className=' text-3xl text-blue-700 font-bold ml-4 flex  items-center gap-3'><MdAdminPanelSettings size={50} className='text-black' /> <span>Admin</span> </div>
 
+                              {/* all navigationbar  */}
 
                               <div className='mt-20 text-xl font-semibold'>
                                     <li>
@@ -50,7 +50,7 @@ const Main = () => {
                                     <li>
                                           <Link className={`
                                     ${location?.pathname === '/contact' ? 'bg-slate-700 text-white' : ''}
-                                    `} to='/contact'><GrContact/> Contact </Link>
+                                    `} to='/contact'><GrContact /> Contact </Link>
                                     </li>
                               </div>
 

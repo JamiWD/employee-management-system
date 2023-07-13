@@ -28,7 +28,7 @@ const router=createBrowserRouter([
                   {
                         path:'update/:id',
                         element:<Update></Update>,
-                        loader:({params})=>fetch(`http://localhost:3000/users/${params.id}`)
+                        loader:({params})=>fetch(`https://user-management-server-flax.vercel.app/users/${params.id}`)
                   },
                   {
                         path:'view/:id',

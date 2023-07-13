@@ -4,6 +4,7 @@ import { useDispatch} from 'react-redux';
 import { createUser } from '../../redux/state/UseReducer';
 import { useNavigate } from 'react-router-dom';
 import { BsArrowBarRight } from 'react-icons/bs';
+import Swal from 'sweetalert2';
 
 const CreateUser = () => {
       const [users, setUsers]=useState({});
@@ -23,9 +24,19 @@ const CreateUser = () => {
 
       const handleSubmit=event=>{
             event.preventDefault();
+            const form = event.target;
+
 
             dispatch(createUser(users))
-            navigate('/')
+            Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'User successfully created!!!',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+                form.reset()
+            
 
         
       }
