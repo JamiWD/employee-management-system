@@ -1,14 +1,25 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { useParams } from 'react-router-dom';
+import { showUser } from '../../redux/state/UseReducer';
+
 
 const User = () => {
-      const {id}= useParams();
-      const users = useSelector(state => state.users);
-  
-      const currentUser= users.find(user=>user.id == id);
-    
-      const { name, email, phone}= currentUser;
+      const { id } = useParams();
+      const dispatch = useDispatch()
+      const { users,loading } = useSelector(state => state.users);
+      
+      const user= users.find(u=>u._id == id);
+      useEffect(() => {
+            dispatch(showUser())
+      }, [id],dispatch)
+
+      const {_id, name,email,phone}= user ;
+      
+      
+
+
       return (
             <div className="overflow-x-auto w-[90%] mx-auto">
                   <table className="table">
@@ -25,7 +36,7 @@ const User = () => {
                         </thead>
                         <tbody>
                               <tr>
-                                    <th>{id}</th>
+                                    <th>{_id}</th>
                                     <td>{name}</td>
                                     <td>{email}</td>
                                     <td>{phone}</td>

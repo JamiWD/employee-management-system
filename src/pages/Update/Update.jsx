@@ -1,32 +1,27 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
-// import { updateUser } from '../../redux/state/UseReducer';
+import { useDispatch} from 'react-redux';
+import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
+import { updateUser } from '../../redux/state/UseReducer';
+
 
 const Update = () => {
+      const d = useLoaderData()
       const navigate = useNavigate()
-
-      const { id } = useParams();
-      const users = useSelector(state => state.users);
-      const existingUser = users.find(user => user.id == id);
-
-      const { name, email, phone } = existingUser;
-      const [uname, setName] = useState(name)
-      const [uemail, setEmail] = useState(email)
-      const [uphone, setPhone] = useState(phone)
-
       const dispatch = useDispatch();
+      const [updateData, setUpdateData] = useState(d);
+   
+
+
+      const newData = (e) => {
+            setUpdateData({ ...updateData, [e.target.name]: e.target.value });
+      }
 
 
       const handleSubmit = event => {
             event.preventDefault()
+            // console.log(updateData);
 
-            // dispatch(updateUser({
-            //       id: id,
-            //       name: uname,
-            //       email: uemail,
-            //       phone: uphone
-            // }))
+            dispatch(updateUser(updateData))
 
             navigate('/')
       }
@@ -44,8 +39,8 @@ const Update = () => {
                               name="name"
                               placeholder='Enter Name...'
                               className="w-full border border-gray-300 rounded-md px-3 py-2"
-                              defaultValue={uname}
-                              onChange={e => setName(e.target.value)}
+                              defaultValue={updateData && updateData.name}
+                              onChange={newData}
 
                         />
 
@@ -60,8 +55,8 @@ const Update = () => {
                               name="email"
                               placeholder='Enter Email...'
                               className="w-full border border-gray-300 rounded-md px-3 py-2"
-                              defaultValue={uemail}
-                              onChange={e => setEmail(e.target.value)}
+                              defaultValue={updateData && updateData.email}
+                              onChange={newData}
 
                         />
                   </div>
@@ -79,8 +74,8 @@ const Update = () => {
                               name="phoneNumber"
                               placeholder='Enter phone number...'
                               className="w-full border border-gray-300 rounded-md px-3 py-2"
-                              defaultValue={uphone}
-                              onChange={e => setPhone(e.target.value)}
+                              defaultValue={updateData && updateData.phoneNumber}
+                              onChange={newData}
                         />
                   </div>
 
