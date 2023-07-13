@@ -23,6 +23,21 @@
 
 6. **React Icons** : https://react-icons.github.io/react-icons/
 7. **Sweetalert2** : https://sweetalert2.github.io/
+8. **Lottie animation** : https://www.npmjs.com/package/react-lottie
+9. **React Loader** : https://mhnpd.github.io/react-loader-spinner/docs/intro
 
 ## Features
+1. ### users:
+   * All user shows with user id, name and 3 buttons (view, edit, delete)
+   * At the top of page a create user btn , when user click then show a new form
+3. ### Create User
+   * By providing all info new user is create
 
+4. ### Update
+   1. When User click on edit then shows a form with specifie user info. After click on update user info updated
+5. ### View
+   1. It open a modal with user info
+
+
+# Thank you for your consideration. 
+Alam Hossain
