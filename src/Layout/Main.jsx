@@ -4,7 +4,7 @@ import Footer from '../pages/Shared/Footer/Footer';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { CiMenuFries } from 'react-icons/ci';
 import { FaUser, FaUsers } from 'react-icons/fa';
-
+import { GrContact } from 'react-icons/gr';
 import { MdAdminPanelSettings, MdOutlineHome } from "react-icons/md";
 const Main = () => {
       const location = useLocation();
@@ -28,24 +28,29 @@ const Main = () => {
                         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                         <ul className="menu p-4 w-80 h-full bg-white  text-base-content">
                               {/* Sidebar content here */}
-                              <div className=' text-3xl text-blue-700 font-bold ml-4 flex  items-center gap-3'><MdAdminPanelSettings size={50} className='text-black'/> <span>Admin</span> </div>
-                               
+                              <div className=' text-3xl text-blue-700 font-bold ml-4 flex  items-center gap-3'><MdAdminPanelSettings size={50} className='text-black' /> <span>Admin</span> </div>
+
 
                               <div className='mt-20 text-xl font-semibold'>
                                     <li>
                                           <Link className={`
                                     ${location?.pathname === '/dashboard' ? 'bg-slate-700 text-white' : ''}
-                                    `} to='/dashboard'><MdOutlineHome size={30}/> Dashboard</Link>
+                                    `} to='/dashboard'><MdOutlineHome size={30} /> Dashboard</Link>
                                     </li>
                                     <li>
                                           <Link className={`
                                     ${location?.pathname === '/' ? 'bg-slate-700 text-white' : ''}
-                                    `} to='/'><FaUsers/> Users</Link>
+                                    `} to='/'><FaUsers /> Users</Link>
                                     </li>
                                     <li>
                                           <Link className={`
                                     ${location?.pathname === '/create' ? 'bg-slate-700 text-white' : ''}
-                                    `} to='/create'><FaUser/> Create User</Link>
+                                    `} to='/create'><FaUser /> Create User</Link>
+                                    </li>
+                                    <li>
+                                          <Link className={`
+                                    ${location?.pathname === '/contact' ? 'bg-slate-700 text-white' : ''}
+                                    `} to='/contact'><GrContact/> Contact </Link>
                                     </li>
                               </div>
 

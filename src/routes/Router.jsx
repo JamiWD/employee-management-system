@@ -5,6 +5,7 @@ import CreateUser from "../pages/CreateUser/CreateUser";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Update from "../pages/Update/Update";
 import User from "../pages/User/User";
+import Contact from "../pages/Contact/Contact";
 
 const router=createBrowserRouter([
       {
@@ -32,6 +33,10 @@ const router=createBrowserRouter([
                   {
                         path:'view/:id',
                         element:<User></User>
+                  },
+                  {
+                        path:'contact',
+                        element:<Contact/>
                   }
                   
             ]
