@@ -70,7 +70,7 @@ const CreateUser = () => {
 
                         />
                   </div>
-                  <div className="mb-4">
+                  {/* <div className="mb-4">
                         <label htmlFor="email" className="block text-gray-700 font-bold mb-1">
                               Salary <span className=' text-red-500'>*</span>
                         </label>
@@ -84,7 +84,7 @@ const CreateUser = () => {
                               required
 
                         />
-                  </div>
+                  </div> */}
 
                   <div className="mb-4">
                         <label htmlFor="phoneNumber" className="block text-gray-700 font-bold mb-1">
