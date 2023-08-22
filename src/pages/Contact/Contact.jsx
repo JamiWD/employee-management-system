@@ -3,13 +3,13 @@ import React from 'react';
 const Contact = () => {
       return (
             <div className='flex flex-col justify-center items-center text-center'>
-                  <h1 className=' text-3xl font-bold'>Alam Hossain</h1>
-                  <p>MERN Stack Developer</p>
+                  <h1 className=' text-blue-600 text-3xl font-bold'>Sheikh Jami Jashim</h1>
+                  <p className='font-bold'>MERN Stack Developer</p>
 
                   <div>
-                        <a className=' text-blue-700' href="mailto:alam13100852@gmail.com">alam13100852@gmail.com</a>
-                        <p>whatsapp: +880 1925375672</p>
-                        <p>Dhaka, Bangladesh</p>
+                        <p>Phone: +880 1721403415</p>
+                        <a className=' text-blue-800 font-extrabold gap-3' href="mailto:alam13100852@gmail.com">jami6bd@gmail.com</a>
+                        <p>Mymensingh, Bangladesh</p>
                   </div>
             </div>
       );

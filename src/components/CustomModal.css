@@ -1,6 +1,6 @@
 .modalBackground {
       position: fixed;
-      background-color: black;
+      background-color: whitesmoke;
       top: 0;
       bottom: 0;
       left: 0;
@@ -13,8 +13,8 @@
 }
 
 .modalContainer {
-      background-color: white;
-      box-shadow: 0px 0px 0px #888;
+      background-color: rgb(46, 5, 171);
+      box-shadow: 0px 0px 0px white;
       padding: 10px;
       border-radius: 10px;
       height: 300px;

@@ -8,18 +8,18 @@ import { showUser } from '../../redux/state/UseReducer';
 const User = () => {
       const { id } = useParams();
       const dispatch = useDispatch()
-      const { users,loading } = useSelector(state => state.users);
-      
-      const user= users.find(u=>u._id == id);
+      const { users, loading } = useSelector(state => state.users);
+
+      const user = users.find(u => u._id == id);
       useEffect(() => {
             dispatch(showUser())
-      }, [id],dispatch)
+      }, [id], dispatch)
 
-      const {_id, name,email,phone}= user ;
-      
-      
+      const { _id, name, email, phone, salary } = user;
 
 
+
+      np
       return (
             <div className="overflow-x-auto w-[90%] mx-auto">
                   <table className="table">
@@ -31,6 +31,7 @@ const User = () => {
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
+                                    <th>Salary</th>
 
                               </tr>
                         </thead>
@@ -40,6 +41,7 @@ const User = () => {
                                     <td>{name}</td>
                                     <td>{email}</td>
                                     <td>{phone}</td>
+                                    <td>{salary}</td>
 
                               </tr>
 
